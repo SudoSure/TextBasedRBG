@@ -1,0 +1,42 @@
+
+Epic for each feature.
+1) Inventory 
+    Epic :
+          User can use inventory anytime user want. 
+          User can stroing the items, using items, buying and selling items at the shop. 
+          User can see certain items in the inventory. 
+    Design pattern: 
+          Composition pattern
+
+2) Choosing Class
+    Epic:User should be prompted to choose class at beginning of game.
+         User should be presented with list of available classes to choose from.
+         User should be able to select a class by entering its numeric value.
+         Each class should be instantiated with unique skillset and stats
+    
+    Design pattern: Strategy pattern
+    
+3) Fight or Flee
+    Epic:
+        User should be able to choose to fight or flee during a fight sequence. 
+        This will be prompted for every turn.
+        
+    Design pattern: Strategy pattern
+    
+4) Using skills
+    Epic:
+        User can use skills during fight sequences. 
+        Skills will depend on the class of the character.
+
+    Design pattern: Strategy pattern
+    
+5) Buy or sell
+    Epic: Users should be able to access their inventory to see what items they have. 
+          Users should be able to access a general shop from the main menu and see what items they can buy and sell.
+          Users should be able to see their current balance of money.
+    
+    Design pattern: composition pattern
+6)  UI
+    Epic: Users should be able to see possible actions at home base
+          Users should be able to see possible actions whilst fighting
+    Design pattern: Strategy pattern

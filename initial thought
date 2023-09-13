@@ -1,0 +1,195 @@
+#include <iostream>
+
+
+/
+Strategy
+declares an interface common to all supported algorithms
+/
+
+class Menu
+{
+	public:
+		virtual ~Menu(){
+		}
+		virtual void displayMenu() = 0;
+};
+
+class BaseMenu :public Menu
+{	
+	private:
+	int option;
+	bool repeat;	
+	public:
+		~BaseMenu() {
+		}
+
+		void displayMenu()
+		{
+		do{
+		   repeat = false;
+			std::cout << "Please Choose your Action" << std::endl;
+			Std::cout << "#1 Combat \n #2 Shop \n #3 Inventory \n #4 Class\n"
+			std::cin>>option;
+			switch(option){
+				case'1' :
+					std::cout<<"You choose Combat Option"<< std::endl;
+					break;
+				case'2' :
+					std::cout<<"You choose Shop Option" << std::endl;
+					break;
+				case'3' :
+					std::cout<<"You choose Inventory Option"<<std::endl;
+					break;
+				case'4' :
+					std::cout<<"You choose Class Selction Option"<<std::endl;
+					break;
+				default :
+					std::cout<<"Please Put the Correct  number bettwen 1~4"<<std::endl;
+					repeat=true;
+			}
+		}
+		while(repeat);
+	}
+}
+	
+
+
+
+class CombatMenu : public  Menu
+{ 
+	private:
+	int input;
+	int input2;
+
+	public:
+		~CombatMenu()
+		{
+
+		}
+		void displayMenu()
+		{
+			std::cout<< "Please Choose your Action"<< std::endl;
+			std::cout<< "#1 Fight \n #2 Retreat"<< std::endl;
+			std::cin>>input;
+			switch(input){
+				case '1' :
+					std::cout<<"Select your next Action"<< std::endl;
+					std::cout<<"#1 Attack #2 Skill \n #3 Inventory #4 Retreat"<<std::endl;
+					std::cin>>input2;
+					switch(input2){
+							case'1':
+								//TODO:: CAll Attack to Attack
+								break;
+							case'2':
+								//TODO:: CALL Skill to use skill
+								break;
+							case'3':
+								//TODO: CAll Inventory to access
+								break;
+							case'4':
+								//TODO: GO Back to Base Menu
+								break;
+							}
+				default :
+					//TODO: GO Back to Base Menu
+					break:
+				}
+		}
+};
+
+class ClassSelect: public Menu
+{
+	private:
+	int cinput;
+	bool repeat;
+	public:
+		~ClassSelect()
+		{
+
+		}
+
+		void displayMenu()
+		{
+		 do{
+		   repeat = false;
+			std::cout<<"Select your Class"<<std::endl;
+			std::cout<<"#1 Knight		#2 Mage		#3 Archer"<<std::endl;
+			//TODO:: Call Status of each class to print
+			
+			std::cin>>cinput;
+			switch(cinput){
+					case'1':
+						std::cout<<"Your class is Knight"<<std::endl;
+						//TODO user become Knight and play as  Knight
+						//TODO Go back to BaseMenu
+						break;
+					case'2':
+						std::cout<<"Your class is Mage"<<std::endl;
+						//TODO user become Mage and play as Mage
+						//TODO:: Go back to BaseMenu
+						break;
+					case'3':
+						std::cout<<"Your class is Archer"<<std::endl;
+						//TODO:user become Archer and play as Archer
+						//TODO: Go back to BaseMenu
+						break;
+					default:
+						std::cout<<"Put number bettwen 1~3"<<std::endl;
+						repeat=true;
+					}
+				}
+			while(repeat);
+		}
+};
+
+class ShopMenu: public Menu
+{
+	private:
+	int sinput;   //Shopinput
+	int boption;  //buying option
+	int HPP,MPP,num1,num2,num3; 
+	public:
+		~ShopMenu()
+		{
+
+		}
+		void displayMenu()
+		{
+			std::cout<<"Welcome to the Shop \n How can I help you?"<<std::endl;
+			std::cout<<"#1 Buy	#2 Sell 	#3 MainMenu"<<std::endl;
+			std::cin>>sinput;
+			switch(sinput){
+				case'1':
+					std::cout<<"Here is List of Items we have"<<std::endl;
+					std::cout<<list<<endl;
+					std::cin>>boption;
+					switch(boption){
+							case '1':
+								std::cout<<"How many do you want to buy? \n"
+								std::cin>>num1;//number of item #1
+								int HPP += num1;
+								std::cout<<"You Have "<<HPP<<" HP portion \n"
+								break;
+							case '2':
+								std::cout<<"How many do you wan to buy?\n"
+								std::cin>>num2; //number of item #2
+								int MPP += num2;
+								std::cout<<"You Have "<<MPP<<" MP portion\n"
+								break;
+							// As we create more item we can make more case
+							}
+					break;
+				case'2':
+					std::cout<<"You have "<<gold<<" Gold and "<<item<<" items"<<std::endl;
+					std::cout<<"How many do you want to sell?"<<std::endl;
+					std::cin>>num3;
+					//Calculate the total amount of gold//
+					break;
+				default:
+					break;
+					//retun to the main menu
+					}
+		}
+};
+					
+										
